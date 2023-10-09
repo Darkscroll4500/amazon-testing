@@ -4,7 +4,7 @@ import Page from './page';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class LoginPage extends Page {
+class RegisterPage extends Page {
     /**
      * define selectors using getter methods
      */
@@ -53,6 +53,12 @@ class LoginPage extends Page {
         await this.btnContinuar.click();
     }
 
+    public async iniciarSesion (correo: string, contrasena: string) {
+        await browser.pause(2000);
+        await this.campoCorreo.setValue(correo);
+        await this.campoContrasena.setValue(contrasena);
+        await this.btnContinuar.click();
+    }
 
 
     /**
@@ -63,4 +69,4 @@ class LoginPage extends Page {
     }
 }
 
-export default new LoginPage();
+export default new RegisterPage();

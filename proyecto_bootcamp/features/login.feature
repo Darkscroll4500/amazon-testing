@@ -8,6 +8,15 @@ Feature: Yo como usuario deseo crear una cuenta e iniciar sesion
     Then Yo deberia ver un mensaje de confirmacion <message>
 
     Examples:
-      | nombre   | correo                | contrasena           | repetirContrasena    | message                        |
+      | nombre   | correo                 | contrasena           | repetirContrasena    | message                        |
       | tomsmith | jahaxeb452@estudys.com | SuperSecretPassword! | SuperSecretPassword! | You logged into a secure area! |
-     # | foobar   | usuario4567@gmail.com | barfoo               | barfoo               | Your username is invalid!      |
+  # | foobar   | usuario4567@gmail.com | barfoo               | barfoo               | Your username is invalid!      |
+
+  @login
+  Scenario: iniciar sesion
+
+    Given Yo voy a la pagina de iniciar sesion
+    When Yo inicio sesion con <correo> , <contrasena>
+    Then Yo deberia ver un mensaje de confirmacion <message>
+    
+      
