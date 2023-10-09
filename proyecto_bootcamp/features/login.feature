@@ -1,12 +1,13 @@
-Feature: The Internet Guinea Pig Website
+Feature: Yo como usuario deseo crear una cuenta e iniciar sesion
 
-  Scenario Outline: As a user, I can log into the secure area
+  @registro
+  Scenario Outline: Crear una nueva cuenta
 
-    Given I am on the login page
-    When I login with <username> and <password>
-    Then I should see a flash message saying <message>
+    Given Yo voy a la pagina de crear cuenta
+    When Yo me registro con <nombre>, <correo>, <contrasena>, <repetirContrasena>
+    Then Yo deberia ver un mensaje de confirmacion <message>
 
     Examples:
-      | username | password             | message                        |
-      | tomsmith | SuperSecretPassword! | You logged into a secure area! |
-      | foobar   | barfoo               | Your username is invalid!      |
+      | nombre   | correo                | contrasena           | repetirContrasena    | message                        |
+      | tomsmith | jahaxeb452@estudys.com | SuperSecretPassword! | SuperSecretPassword! | You logged into a secure area! |
+     # | foobar   | usuario4567@gmail.com | barfoo               | barfoo               | Your username is invalid!      |
