@@ -51,6 +51,7 @@ class RegisterPage extends Page {
         await this.campoContrasena.setValue(contrasena);
         await this.campoRepetirContrasena.setValue(repetirContrasena);
         await this.btnContinuar.click();
+        await browser.pause(12000);
     }
 
     public async iniciarSesion (correo: string, contrasena: string) {

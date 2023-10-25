@@ -1,8 +1,11 @@
 import { $, $$ } from '@wdio/globals';
 
 class Carrito {
-    public get productsInCart() {
-        return $$('.sc-item-content-group'); // Selecciona todos los elementos que representan productos en el carrito
+    public get seleccionarCarrito (){
+        return $("//span[@class='nav-cart-icon nav-sprite']");
+    }
+    public get productosEnCarrito() {
+        return $$("//div[@class='sc-item-content-group']"); // Selecciona todos los elementos que representan productos en el carrito
     }
 
     public get subtotal() {
@@ -10,7 +13,7 @@ class Carrito {
     }
 
     public async validarProductosEnCarrito(): Promise<{ productCount: number, subtotal: string, sonProductosDiferentes: boolean }> {
-        const products: any = await this.productsInCart; // Usar 'any' para evitar problemas de tipo
+        const products: any = await this.productosEnCarrito; // Usar 'any' para evitar problemas de tipo
         const uniqueProducts = new Set(products.map((product: any) => product.getText()));
 
         return {

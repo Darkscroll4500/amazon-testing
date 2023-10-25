@@ -25,6 +25,10 @@ class LoginPage extends Page {
     public get btnIniciarSesion () {
         return $("//input[@id='signInSubmit']");
     }
+
+    public get bienvenida () {
+        return $("//span[@id='nav-link-accountList-nav-line-1']");
+    }
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password

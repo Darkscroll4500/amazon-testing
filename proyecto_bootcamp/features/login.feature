@@ -5,18 +5,24 @@ Feature: Yo como usuario deseo crear una cuenta e iniciar sesion
 
     Given Yo voy a la pagina de crear cuenta
     When Yo me registro con <nombre>, <correo>, <contrasena>, <repetirContrasena>
-    Then Yo deberia ver un mensaje de confirmacion <message>
+    Then Yo deberia ver un mensaje de bienvenida <message>
 
     Examples:
-      | nombre   | correo                 | contrasena           | repetirContrasena    | message                        |
-      | tomsmith | jahaxeb452@estudys.com | SuperSecretPassword! | SuperSecretPassword! | You logged into a secure area! |
-  # | foobar   | usuario4567@gmail.com | barfoo               | barfoo               | Your username is invalid!      |
+      | nombre   | correo                | contrasena       | repetirContrasena    | message        |
+      | Hermione | fadaka2527@unbiex.com | SuperSecretPass! | SuperSecretPassword! | Hola Hermione  |
+      | Hermione | fadaka2527@unbiex.com | SuperSecretPass! | SuperSecretPass!     | Hola, Hermione |
+      | Hermione | fadaka2527@unbiex.com | SuperSecretPass! | SuperSecretPass!     | Hola Hermione  |
+
+
 
   @login
-  Scenario: iniciar sesion
+  Scenario Outline: iniciar sesion
 
     Given Yo voy a la pagina de iniciar sesion
     When Yo inicio sesion con <correo> , <contrasena>
-    Then Yo deberia ver un mensaje de confirmacion <message>
-    
-      
+    Then Yo deberia ver un mensaje de bienvenida <mensaje>
+
+    Examples:
+      | correo                | contrasena | mensaje        |
+      | miboxa5375@klanze.com | 12345Jose  | Hola, tomsmith |
+      | miboxa5375@klanze.com | 12345Jose  | Hola tomsmith  |
