@@ -1,8 +1,20 @@
 import { $, $$ } from '@wdio/globals';
 
 class Carrito {
+
+
+    public get btnComprarProdUno(){
+        return $('(//input[@name="submit.addToCart"])[1]')
+    }
+    public get btnComprarProdDos(){
+        return $('(//input[@name="submit.addToCart"])[2]')
+    }
+    public get btnComprarProdTres(){
+        return $('(//input[@name="submit.addToCart"])[3]')
+    }
+
     public get seleccionarCarrito (){
-        return $("//span[@class='nav-cart-icon nav-sprite']");
+        return $("//div[@id='nav-cart-text-container']");
     }
     public get productosEnCarrito() {
         return $$("//div[@class='sc-item-content-group']"); // Selecciona todos los elementos que representan productos en el carrito
@@ -22,10 +34,15 @@ class Carrito {
             sonProductosDiferentes: uniqueProducts.size === products.length,
         };
     }
+    public async agregarProductosAlCarrito() {
+        await this.btnComprarProdTres.click();
+        await this.btnComprarProdDos.click();
+        await this.btnComprarProdUno.click();
+    }
 
     public async irAlCarrito() {
-        const carritoElement: any = await $('a[aria-label="3 artículos en el carrito"]'); // Usar 'any' para evitar problemas de tipo
-        await carritoElement.click();
+        await this.seleccionarCarrito.click();
+        //const carritoElement: any = await $('a[aria-label="3 artículos en el carrito"]'); // Usar 'any' para evitar problemas de tipo
     }
 
     public get subtotalRaw() {

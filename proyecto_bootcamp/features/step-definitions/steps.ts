@@ -42,6 +42,18 @@ When(/^Yo inicio sesion con (.*), (.*)$/, async (correo, contrasena) => {
 
 //carrito
 
+Given(/^Yo agrego productos al carrito$/, async () => {
+    await RegisterPage.open();
+    await RegisterPage.identificate.click();
+    await browser.pause(2000);
+    await LoginPage.iniciarSesion("miboxa5375@klanze.com", "12345Jose");
+    await browser.pause(2000);
+    await LoginPage.btnCompraDeNuevo.click();
+   await Carrito.agregarProductosAlCarrito();
+   await browser.pause(2000);
+   
+});
+
 When(/^El usuario va al carrito de compras$/, async () => {
     await Carrito.irAlCarrito();
 });

@@ -29,6 +29,10 @@ class LoginPage extends Page {
     public get bienvenida () {
         return $("//span[@id='nav-link-accountList-nav-line-1']");
     }
+
+    public get btnCompraDeNuevo () {
+        return $('//*[@id="nav-xshop"]/a[3]');
+    }
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
@@ -41,6 +45,7 @@ class LoginPage extends Page {
         await browser.pause(2000);
         await this.campoContrasena.setValue(contrasena);
        await this.btnIniciarSesion.click();
+    
     }
 
 
