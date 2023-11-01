@@ -4,7 +4,7 @@ import Page from './page';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class LoginPage extends Page {
+export class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
@@ -25,19 +25,7 @@ class LoginPage extends Page {
     public get btnIniciarSesion () {
         return $("//input[@id='signInSubmit']");
     }
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-
-    public async iniciarSesion (correo: string, contrasena: string) {
-        await browser.pause(2000);
-        await this.campoCorreo.setValue(correo);
-        await this.btnContinuar.click();
-        await browser.pause(2000);
-        await this.campoContrasena.setValue(contrasena);
-       await this.btnIniciarSesion.click();
-    }
+    
 
 
     /**

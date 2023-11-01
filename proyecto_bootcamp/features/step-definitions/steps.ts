@@ -1,13 +1,21 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect, $, browser } from '@wdio/globals'
 
+// import {expect} from 'chai';
+// import {expect as assert} from 'chai';
+
 import RegisterPage from '../pageobjects/pag.registro';
-import LoginPage from '../pageobjects/pag.iniciar.sesion';
+
+
 import SecurePage from '../pageobjects/secure.page';
 
+import { RegisterTask } from '../tasks/registroTask';
+
+const registerTask = new RegisterTask()
 const pages = {
-    login: RegisterPage
+    register: RegisterPage
 }
+
 
 Given(/^Yo voy a la pagina de crear cuenta$/, async () => {
     await RegisterPage.open();
@@ -16,7 +24,7 @@ Given(/^Yo voy a la pagina de crear cuenta$/, async () => {
 
 When(/^Yo me registro con (.*), (.*), (.*), (.*)$/, async (nombre, correo, contrasena, repetirContrasena) => {
     await browser.pause(3000);
-    await RegisterPage.creacionCuenta(nombre, correo, contrasena, repetirContrasena);
+    await registerTask.creacionCuenta(nombre, correo, contrasena, repetirContrasena);
     await browser.pause(200000);
 });
 
@@ -26,13 +34,4 @@ Then(/^Yo deberia ver un mensaje de confirmacion (.*)$/, async (message) => {
 });
 
 
-Given(/^Yo voy a la pagina de iniciar sesion$/, async () => {
-    await RegisterPage.open();
-    await RegisterPage.identificate.click();
-});
 
-When(/^Yo inicio sesion con (.*), (.*)$/, async (correo, contrasena) => {
-    await browser.pause(3000);
-    await LoginPage.iniciarSesion('miboxa5375@klanze.com', '12345Jose');
-    await browser.pause(200000);
-});

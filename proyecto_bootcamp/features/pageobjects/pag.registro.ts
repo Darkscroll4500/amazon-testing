@@ -4,7 +4,7 @@ import Page from './page';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class RegisterPage extends Page {
+export class RegisterPage extends Page {
     /**
      * define selectors using getter methods
      */
@@ -19,7 +19,7 @@ class RegisterPage extends Page {
     public get crearCuenta (){
         return $('#createAccountSubmit')
     }
-    public get CampoNombre () {
+    public get campoNombre () {
         return $("//input[@id='ap_customer_name']");
     }
 
@@ -39,33 +39,16 @@ class RegisterPage extends Page {
         return $("//input[@id='continue']");
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
+   
 
-    public async creacionCuenta (nombre: string, correo: string, contrasena: string, repetirContrasena: string) {
-        await browser.pause(2000);
-        await this.CampoNombre.setValue(nombre);
-        await this.campoCorreo.setValue(correo);
-        await this.campoContrasena.setValue(contrasena);
-        await this.campoRepetirContrasena.setValue(repetirContrasena);
-        await this.btnContinuar.click();
-    }
-
-    public async iniciarSesion (correo: string, contrasena: string) {
-        await browser.pause(2000);
-        await this.campoCorreo.setValue(correo);
-        await this.campoContrasena.setValue(contrasena);
-        await this.btnContinuar.click();
-    }
+    
 
 
     /**
      * overwrite specific options to adapt it to page object
      */
     public open () {
-        return super.open('login');
+        return super.open('register');
     }
 }
 
