@@ -4,7 +4,7 @@ import Page from './page';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class LoginPage extends Page {
+export class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
@@ -31,7 +31,7 @@ class LoginPage extends Page {
     }
 
     public get btnCompraDeNuevo () {
-        return $('//*[@id="nav-xshop"]/a[3]');
+        return $('//*[@id="nav-xshop"]/a[2]');
     }
     /**
      * a method to encapsule automation code to interact with the page

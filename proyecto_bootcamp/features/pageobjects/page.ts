@@ -13,3 +13,5 @@ export default class Page {
         return browser.url(`https://www.amazon.com/-/es/`)
     }
 }
+
+
