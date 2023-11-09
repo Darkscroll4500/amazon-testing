@@ -6,3 +6,4 @@ Feature: Yo como usuario deseo validar los productos en el carrito de compras
     When El usuario va al carrito de compras
     Then El carrito debe contener al menos 3 productos
     And Los 3 productos en el carrito deben ser diferentes
+    And El subtotal debe corresponder a la suma de los 3 productos

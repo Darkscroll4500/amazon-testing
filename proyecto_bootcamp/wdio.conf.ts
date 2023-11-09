@@ -138,8 +138,7 @@ export const config: Options.Testrunner = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/login.steps.ts', './features/step-definitions/carrito.steps.ts'],
-        //['./features/step-definitions/steps.ts'],
+        require: ['./features/step-definitions/registro.steps.ts','./features/step-definitions/login.steps.ts', './features/step-definitions/carrito.steps.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -158,7 +157,7 @@ export const config: Options.Testrunner = {
         tagExpression: ' @carrito',
         //'@login and',
         // <number> timeout for step definitions
-        timeout: 60000,
+        timeout: 80000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },

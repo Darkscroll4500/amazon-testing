@@ -17,9 +17,9 @@ export class CarritoPage {
         // return $('#sc-subtotal-amount-buybox').getText(); // Selector para el subtotal del carrito
         return $("//span[@id='sc-subtotal-amount-buybox']").getText();
     }
-    public get subtotalRaw() {
-        return $("//span[@id='sc-subtotal-amount-activecart']").getText();
-    }
+    // public get subtotalRaw() {
+    //     return $("//span[@id='sc-subtotal-amount-activecart']").getText();
+    // }
 
     // Buscar producto en Amazon
     public get buscarAmazon() {
@@ -30,22 +30,27 @@ export class CarritoPage {
         return $("//input[@id='nav-search-submit-button']")
     }
 
-    // Seleccionar los 3 primeros productos en los resultados de la busqueda
+    // Seleccionar los 3 primeros productos en los resultados de la busqueda, 1 producto por cada busqueda igual
     public get btnProd1() {
         return $("//span[@class='rush-component s-latency-cf-section']//div[@class='s-main-slot s-result-list s-search-results sg-row']/child::div[3]//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']")
-        //return $("//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']")
-    }
-    public get btnProd2() {
-        return $("//span[@class='rush-component s-latency-cf-section']//div[@class='s-main-slot s-result-list s-search-results sg-row']/child::div[4]//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']")
-        //return $("//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']")
-    }
-    public get btnProd3() {
-        return $("//span[@class='rush-component s-latency-cf-section']//div[@class='s-main-slot s-result-list s-search-results sg-row']/child::div[5]//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']")
-        //return $("//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']")
     }
 
+    public get btnProd2() {
+        return $("//span[@class='rush-component s-latency-cf-section']//div[@class='s-main-slot s-result-list s-search-results sg-row']/child::div[4]//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']")
+    }
+
+    public get btnProd3() {
+        return $("//span[@class='rush-component s-latency-cf-section']//div[@class='s-main-slot s-result-list s-search-results sg-row']/child::div[5]//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']")
+    }
+
+    // Agregar producto al carrito
     public get btnAgregarCarrito() {
         return $("//input[@name='submit.add-to-cart']")
+    }
+
+    public get precioProductosCarrito() {
+        return $("//div[@class='sc-item-content-group']//span[@class='a-size-medium a-color-base sc-price sc-white-space-nowrap sc-product-price a-text-bold']").getText()
+        //return $("//div[@class='sc-item-content-group']//span[contains(text(), '.')]")
     }
 
 
@@ -53,6 +58,8 @@ export class CarritoPage {
 }
 
 export default new CarritoPage();
+
+
 
 
 // Como inicialmente se intento agregar los productos al carrito
